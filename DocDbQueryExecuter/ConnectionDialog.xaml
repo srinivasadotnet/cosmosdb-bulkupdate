@@ -1,0 +1,17 @@
+﻿<Window x:Class="DocDbQueryExecuter.ConnectionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DocDbQueryExecuter"
+        mc:Ignorable="d"
+        Title="Add Connection Information" Height="171.463" Width="500">
+    <Grid Margin="0,0,-0.4,1.4">
+        <Label x:Name="lblUrl" Content="Url : " HorizontalAlignment="Left" Margin="39,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSecret" Content="Secret : " HorizontalAlignment="Left" Margin="22,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUrl" HorizontalAlignment="Left" Height="23" Margin="91,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="383"/>
+        <TextBox x:Name="txtSecret" HorizontalAlignment="Left" Height="23" Margin="91,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="383"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="147,102,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="244,102,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+    </Grid>
+</Window>
