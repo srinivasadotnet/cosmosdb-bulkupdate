@@ -41,3 +41,6 @@ D:\Practice\DocDbQueryExecuter\DocDbQueryExecuter\obj\Debug\DocDbQueryExecuter.P
 D:\Practice\DocDbQueryExecuter\DocDbQueryExecuter\obj\Debug\DocDbQueryExecuter.csproj.GenerateResource.Cache
 D:\Practice\DocDbQueryExecuter\DocDbQueryExecuter\obj\Debug\DocDbQueryExecuter.exe
 D:\Practice\DocDbQueryExecuter\DocDbQueryExecuter\obj\Debug\DocDbQueryExecuter.pdb
+D:\Practice\DocDbQueryExecuter\cosmosdb-bulkupdate\DocDbQueryExecuter\bin\Debug\DocDbQueryExecuter.exe.config
+D:\Practice\DocDbQueryExecuter\cosmosdb-bulkupdate\DocDbQueryExecuter\obj\Debug\DocDbQueryExecuter.exe
+D:\Practice\DocDbQueryExecuter\cosmosdb-bulkupdate\DocDbQueryExecuter\obj\Debug\DocDbQueryExecuter.pdb

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Practice\DocDbQueryExecuter\DocDbQueryExecuter\obj\Debug\
+D:\Practice\DocDbQueryExecuter\cosmosdb-bulkupdate\DocDbQueryExecuter\obj\Debug\
 DocDbQueryExecuter
 none
 false
 DEBUG;TRACE
-D:\Practice\DocDbQueryExecuter\DocDbQueryExecuter\App.xaml
+D:\Practice\DocDbQueryExecuter\cosmosdb-bulkupdate\DocDbQueryExecuter\App.xaml
 22002858912
 
 111556889315
-15-998712125
+15-1848593907
 ConnectionDialog.xaml;MainPage.xaml;
 
-False
+True
 

@@ -48,37 +48,45 @@ namespace DocDbQueryExecuter
         public async Task<MenuItem> GetDBList()
         {
             MenuItem rootItem = new MenuItem { Title = this.endpoint, Level = 0, Secret = this.secret };
-            var dbList = await client.ReadDatabaseFeedAsync().ConfigureAwait(false);
-            foreach (var dbItem in dbList)
+
+            try
             {
-                var dbModel = new MenuItem
+                var dbList = await client.ReadDatabaseFeedAsync().ConfigureAwait(false);
+                foreach (var dbItem in dbList)
                 {
-                    Title = dbItem.Id,
-                    Level = 1
-                };
-
-                var dbCollectionList = await client.ReadDocumentCollectionFeedAsync(UriFactory.CreateDatabaseUri(dbItem.Id)).ConfigureAwait(false);// (dbItem.SelfLink).ConfigureAwait(false);
-                                                                                                                                                   //List<MenuItem> dbCollection = new List<MenuItem>();
-
-                foreach (var collectionItem in dbCollectionList)
-                {
-                    var collectionItemModel = new MenuItem { Title = collectionItem.Id, Level = 2, DbName = dbItem.Id, CollectioName = collectionItem.Id };
-                    var docCollectionList = await client.ReadDocumentFeedAsync(UriFactory.CreateDocumentCollectionUri(dbItem.Id, collectionItem.Id)).ConfigureAwait(false);// (dbItem.SelfLink).ConfigureAwait(false);
-                    foreach (Document docItem in docCollectionList)
+                    var dbModel = new MenuItem
                     {
-                        collectionItemModel.Items.Add(new MenuItem
+                        Title = dbItem.Id,
+                        Level = 1
+                    };
+
+                    var dbCollectionList = await client.ReadDocumentCollectionFeedAsync(UriFactory.CreateDatabaseUri(dbItem.Id)).ConfigureAwait(false);
+
+
+                    foreach (var collectionItem in dbCollectionList)
+                    {
+                        var collectionItemModel = new MenuItem { Title = collectionItem.Id, Level = 2, DbName = dbItem.Id, CollectioName = collectionItem.Id };
+                        var docCollectionList = await client.ReadDocumentFeedAsync(UriFactory.CreateDocumentCollectionUri(dbItem.Id, collectionItem.Id)).ConfigureAwait(false);
+                        foreach (Document docItem in docCollectionList)
                         {
-                            Title = docItem.Id,
-                            DocSelfLink = docItem.SelfLink,
-                            CollectionSelfLink = collectionItem.SelfLink,
-                            Level = 3,
-                            DbName = dbItem.Id,
-                            CollectioName = collectionItem.Id
-                        });
+                            collectionItemModel.Items.Add(new MenuItem
+                            {
+                                Title = docItem.Id,
+                                DocSelfLink = docItem.SelfLink,
+                                CollectionSelfLink = collectionItem.SelfLink,
+                                Level = 3,
+                                DbName = dbItem.Id,
+                                CollectioName = collectionItem.Id
+                            });
+                        }
+                        dbModel.Items.Add(collectionItemModel);
                     }
-                    dbModel.Items.Add(collectionItemModel);
+                    rootItem.Items.Add(dbModel);
                 }
-                rootItem.Items.Add(dbModel);
+            }
+            catch (Exception ex)
+            {
+
             }
 
             return rootItem;
